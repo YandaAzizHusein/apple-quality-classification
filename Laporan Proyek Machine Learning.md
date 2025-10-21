@@ -717,3 +717,42 @@ Berdasarkan hasil keseluruhan proyek **Apple Quality Classification**, diperoleh
    Model dapat dioptimalkan melalui **hyperparameter tuning** untuk meningkatkan akurasi dan kemampuan generalisasi.  
    Selain itu, pengembangan lebih lanjut dapat mencakup **fitur berbasis citra atau sensor non-destruktif**, agar sistem klasifikasi dapat beradaptasi dengan kondisi nyata di industri pertanian modern.
 
+## Daftar Gambar
+1. [Gambar 1. Workflow Diagram Machine Learning](#gambar-1-workflow-diagram-machine-learning)
+2. [Gambar 2. Heatmap Korelasi Fitur](#gambar-2-heatmap-korelasi-fitur)
+3. [Gambar 3. Distribusi Label Target (Quality)](#gambar-3-distribusi-label-target-quality)
+4. [Gambar 4. Confusion Matrix – Logistic Regression](#gambar-4-confusion-matrix--logistic-regression)
+5. [Gambar 5. Confusion Matrix – Random Forest](#gambar-5-confusion-matrix--random-forest)
+6. [Gambar 6. Confusion Matrix – XGBoost](#gambar-6-confusion-matrix--xgboost)
+
+---
+
+### Gambar 1. Workflow Diagram Machine Learning
+<p id="gambar-1-workflow-diagram-machine-learning"></p>
+<img src="Asset/Workflow%20Diagram%20Machine%20Learning.png" alt="Workflow Diagram Machine Learning" width="900"/>
+<br/><em>Data → Preprocessing → Modeling → Evaluation → Result.</em>
+
+### Gambar 2. Heatmap Korelasi Fitur
+<p id="gambar-2-heatmap-korelasi-fitur"></p>
+<img src="Asset/Heatmap.png" alt="Heatmap Korelasi Fitur" width="900"/>
+<br/><em>Korelasi antar fitur terhadap target Quality.</em>
+
+### Gambar 3. Distribusi Label Target (Quality)
+<p id="gambar-3-distribusi-label-target-quality"></p>
+<img src="Asset/Distribusi%20Label%20Target%20(Quality).png" alt="Distribusi Label Target (Quality)" width="700"/>
+<br/><em>Perbandingan jumlah kelas good vs bad.</em>
+
+### Gambar 4. Confusion Matrix – Logistic Regression
+<p id="gambar-4-confusion-matrix--logistic-regression"></p>
+<img src="Asset/Confusion%20Matrix%20-%20Logistic%20Regression.png" alt="Confusion Matrix - Logistic Regression" width="700"/>
+<br/><em>Evaluasi model Logistic Regression pada data uji.</em>
+
+### Gambar 5. Confusion Matrix – Random Forest
+<p id="gambar-5-confusion-matrix--random-forest"></p>
+<img src="Asset/Confusion%20Matrix%20-%20Random%20Forest.png" alt="Confusion Matrix - Random Forest" width="700"/>
+<br/><em>Evaluasi model Random Forest pada data uji.</em>
+
+### Gambar 6. Confusion Matrix – XGBoost
+<p id="gambar-6-confusion-matrix--xgboost"></p>
+<img src="Asset/Confusion%20Matrix%20-%20XGBoost.png" alt="Confusion Matrix - XGBoost" width="700"/>
+<br/><em>Evaluasi model XGBoost pada data uji.</em>
