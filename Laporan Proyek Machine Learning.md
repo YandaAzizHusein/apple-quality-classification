@@ -1,5 +1,23 @@
 # Apple Quality Classification - Yanda Aziz Husein
 ---
+## Daftar Isi
+- [A. Domain Proyek](#a-domain-proyek)
+- [B. Business Understanding](#b-business-understanding)
+- [C. Import Library](#cimport-library)
+- [D. Data Understanding](#d-data-understanding)
+- [E. Data Preparation](#e-data-preparation)
+- [F. Modeling](#f-modeling)
+- [G. Evaluation](#g-evaluation)
+- [H. Kesimpulan](#h-kesimpulan)
+
+## Daftar Gambar
+1. [Gambar 1. Workflow Diagram Machine Learning](#gambar-1-workflow-diagram-machine-learning)
+2. [Gambar 2. Heatmap Korelasi Fitur](#gambar-2-heatmap-korelasi-fitur)
+3. [Gambar 3. Distribusi Label Target (Quality)](#gambar-3-distribusi-label-target-quality)
+4. [Gambar 4. Confusion Matrix – Logistic Regression](#gambar-4-confusion-matrix--logistic-regression)
+5. [Gambar 5. Confusion Matrix – Random Forest](#gambar-5-confusion-matrix--random-forest)
+6. [Gambar 6. Confusion Matrix – XGBoost](#gambar-6-confusion-matrix--xgboost)
+---
 ## **A. Domain Proyek**
 Perkembangan sektor pertanian modern ditandai oleh meningkatnya volume produksi, kompleksitas rantai pasok, serta tuntutan pasar global terhadap mutu hasil pertanian yang konsisten. Dalam industri hortikultura, khususnya komoditas buah apel, kualitas menjadi faktor utama yang menentukan nilai jual, penerimaan pasar, dan daya saing produk. Namun, proses penilaian mutu yang hingga kini masih dilakukan secara manual melalui observasi visual cenderung bersifat subjektif, sulit distandarisasi, dan tidak efisien untuk diterapkan pada skala industri besar (Fadiji et al., 2023). Variasi antarpenilai sering menimbulkan ketidakkonsistenan dan meningkatkan risiko kesalahan klasifikasi mutu, yang pada akhirnya dapat memengaruhi kredibilitas produsen di mata konsumen.
 
@@ -52,8 +70,12 @@ Bagian ini memuat seluruh library yang digunakan dalam proses analisis dan penge
 | Modeling        | `LogisticRegression`, `RandomForestClassifier`, `xgboost`     | Membangun dan melatih model klasifikasi                  |
 | Evaluasi        | `accuracy_score`, `classification_report`, `confusion_matrix` | Mengukur performa model menggunakan metrik evaluasi      |
 
+### Gambar 1. Workflow Diagram Machine Learning
+<p id="gambar-1-workflow-diagram-machine-learning"></p>
+<img src="Asset/Workflow%20Diagram%20Machine%20Learning.png" alt="Workflow Diagram Machine Learning" width="900"/>
+
 ## **D. Data Understanding**
-###1. Deskripsi Dataset
+### 1. Deskripsi Dataset
 Dataset yang digunakan dalam proyek ini berasal dari platform **Kaggle**, berjudul *Apple Quality Dataset* yang dibuat oleh **Nidula Elgiriyewithana**.
 Sumber data dapat diakses melalui tautan berikut: [https://www.kaggle.com/datasets/nelgiriyewithana/apple-quality](https://www.kaggle.com/datasets/nelgiriyewithana/apple-quality).
 
@@ -62,7 +84,7 @@ Dataset ini berisi data kuantitatif yang merepresentasikan karakteristik fisik d
 Tujuan utama dataset ini adalah untuk membangun model klasifikasi yang dapat **memprediksi mutu apel secara otomatis** berdasarkan kombinasi fitur-fitur tersebut. Dataset ini sangat relevan untuk studi *machine learning* karena sudah terstruktur dengan baik, bersih dari nilai kosong (*missing values*), serta memiliki distribusi kelas yang seimbang sehingga ideal untuk eksperimen model klasifikasi biner.
 
 
-###2. Deskripsi Setiap Fitur
+### 2. Deskripsi Setiap Fitur
 
 
 | **Fitur**     | **Deskripsi**                                              |
@@ -77,7 +99,7 @@ Tujuan utama dataset ini adalah untuk membangun model klasifikasi yang dapat **m
 | `Acidity`     | Tingkat keasaman buah                                      |
 | `Quality`     | Label kualitas apel secara keseluruhan (*good* atau *bad*) |
 
-###**3. Ringkasan Dataset**
+### 3. Ringkasan Dataset
 
 * **Jumlah data:** 4.000 baris × 9 kolom
 * **Jenis fitur:** 8 fitur independen dan 1 label target
@@ -85,7 +107,7 @@ Tujuan utama dataset ini adalah untuk membangun model klasifikasi yang dapat **m
 * **Nilai kosong:** tidak ditemukan (*clean dataset*)
 * **Normalisasi:** data telah dinormalisasi (*scaled*) oleh penyedia dataset
 
-  ### **4. Mengunduh Dataset**
+### 4. Mengunduh Dataset
 
 Dataset proyek ini diambil dari **Kaggle**, berjudul *Apple Quality Dataset* yang dibuat oleh **Nidula Elgiriyewithana (2023)**. Dataset ini berisi data karakteristik buah apel yang digunakan untuk membangun model *machine learning* dalam mengklasifikasikan kualitas apel menjadi dua kategori: *good* dan *bad*.
 
@@ -137,7 +159,7 @@ Tahapan ini dilakukan untuk memahami struktur dan karakteristik awal dataset seb
 
 ---
 
-####I. Menampilkan 5 Data Teratas
+#### I. Menampilkan 5 Data Teratas
 
 Kode berikut digunakan untuk melihat lima data teratas dari dataset:
 
@@ -161,7 +183,7 @@ Setiap baris merepresentasikan satu buah apel dengan delapan atribut numerik ser
 Nilai-nilai fitur tampak sudah dalam bentuk terstandarisasi (skala mendekati 0), menunjukkan bahwa dataset telah dinormalisasi oleh penyedia.
 
 ---
-####II. Menampilkan Struktur Dataset
+#### II. Menampilkan Struktur Dataset
 
 Langkah ini digunakan untuk melihat tipe data setiap kolom, jumlah entri, serta memastikan tidak ada nilai kosong.
 
@@ -198,7 +220,7 @@ memory usage: 281.4 KB
 
 
 ---
-####III. Menampilkan Statistik Deskriptif Dataset
+#### III. Menampilkan Statistik Deskriptif Dataset
 
 Langkah ini digunakan untuk melihat ringkasan statistik dasar dari setiap fitur numerik seperti rata-rata, simpangan baku, nilai minimum, dan maksimum.
 
@@ -316,6 +338,11 @@ df['Quality'].value_counts()
 
 **dtype:** `int64`
 
+### Gambar 3. Distribusi Label Target (Quality)
+<p id="gambar-3-distribusi-label-target-quality"></p>
+<img src="Asset/Distribusi%20Label%20Target%20(Quality).png" alt="Distribusi Label Target (Quality)" width="700"/>
+<br/><em>Perbandingan jumlah kelas good vs bad.</em>
+
 ---
 
 #### Interpretasi dan Kesimpulan
@@ -379,7 +406,10 @@ plt.show()
 
 **Visualisasi:**
 
-![Heatmap Korelasi Fitur Apple Quality](attachment:8b023142-feee-4296-bfeb-0428bacd350d.png)
+### Gambar 2. Heatmap Korelasi Fitur
+<p id="gambar-2-heatmap-korelasi-fitur"></p>
+<img src="Asset/Heatmap.png" alt="Heatmap Korelasi Fitur" width="900"/>
+<br/><em>Korelasi antar fitur terhadap target Quality.</em>
 
 ---
 
@@ -400,7 +430,7 @@ Berdasarkan hasil *heatmap* di atas:
 
 ---
 
-#### ✅ **Kesimpulan**
+#### **Kesimpulan**
 
 * Semua kolom telah berhasil dikonversi ke format numerik yang sesuai untuk analisis.
 * Teridentifikasi adanya nilai kosong (NaN) pada kolom `Quality`, yang akan diperbaiki pada tahap *data cleaning*.
@@ -414,7 +444,7 @@ Langkah-langkah pada tahap ini dilakukan untuk memastikan bahwa data yang diguna
 
 ---
 
-###I. Pembersihan Data
+### I. Pembersihan Data
 
 Tahap ini dilakukan untuk memastikan dataset bersih dan layak digunakan dalam proses pemodelan.  
 Langkah-langkah yang dilakukan meliputi:
@@ -443,7 +473,7 @@ df.dropna(inplace=True)
 
 ---
 
-###II. Pemisahan Fitur dan Data Uji
+### II. Pemisahan Fitur dan Data Uji
 
 Langkah ini dilakukan untuk memisahkan variabel fitur (`X`) dan target (`y`), kemudian membagi dataset menjadi **80% data pelatihan** dan **20% data pengujian** menggunakan fungsi `train_test_split` dari *scikit-learn*.
 
@@ -494,7 +524,7 @@ Pemilihan ketiga model ini dilakukan karena masing-masing memiliki keunggulan be
 
 ---
 
-###I. Logistic Regression
+### I. Logistic Regression
 
 Model **Logistic Regression** digunakan sebagai model dasar (*baseline model*) karena kesederhanaannya dan kemampuannya dalam memberikan interpretasi yang baik terhadap hubungan antara fitur dan target.
 
@@ -514,7 +544,7 @@ Parameter `max_iter=1000` digunakan untuk memastikan proses konvergensi berjalan
 
 ---
 
-###II. Random Forest
+### II. Random Forest
 
 Model **Random Forest Classifier** digunakan sebagai model *ensemble learning* yang mampu menangani kompleksitas data dan mengurangi risiko *overfitting*.
 Model ini bekerja dengan menggabungkan hasil dari banyak pohon keputusan (*decision trees*) untuk meningkatkan akurasi prediksi.
@@ -535,7 +565,7 @@ Parameter `n_estimators=200` menunjukkan jumlah pohon keputusan yang digunakan d
 
 ---
 
-###III. XGBoost
+### III. XGBoost
 
 Model **XGBoost (Extreme Gradient Boosting)** dipilih karena kemampuannya dalam menangani data numerik dengan efisien, performa tinggi, serta kemampuan *regularization* yang baik untuk menghindari *overfitting*.
 
@@ -623,7 +653,10 @@ weighted avg     0.7098    0.7088    0.7087       800
 
 **Confusion Matrix – Logistic Regression:**
 
-![Confusion Matrix Logistic Regression](conf_matrix_logreg.png)
+### Gambar 4. Confusion Matrix – Logistic Regression
+<p id="gambar-4-confusion-matrix--logistic-regression"></p>
+<img src="Asset/Confusion%20Matrix%20-%20Logistic%20Regression.png" alt="Confusion Matrix - Logistic Regression" width="700"/>
+<br/><em>Evaluasi model Logistic Regression pada data uji.</em>
 
 ---
 
@@ -649,7 +682,10 @@ weighted avg     0.7871    0.7837    0.7836       800
 
 **Confusion Matrix – Random Forest:**
 
-![Confusion Matrix Random Forest](conf_matrix_rf.png)
+### Gambar 5. Confusion Matrix – Random Forest
+<p id="gambar-5-confusion-matrix--random-forest"></p>
+<img src="Asset/Confusion%20Matrix%20-%20Random%20Forest.png" alt="Confusion Matrix - Random Forest" width="700"/>
+<br/><em>Evaluasi model Random Forest pada data uji.</em>
 
 ---
 
@@ -675,7 +711,10 @@ weighted avg     0.7770    0.7725    0.7723       800
 
 **Confusion Matrix – XGBoost:**
 
-![Confusion Matrix XGBoost](conf_matrix_xgb.png)
+### Gambar 6. Confusion Matrix – XGBoost
+<p id="gambar-6-confusion-matrix--xgboost"></p>
+<img src="Asset/Confusion%20Matrix%20-%20XGBoost.png" alt="Confusion Matrix - XGBoost" width="700"/>
+<br/><em>Evaluasi model XGBoost pada data uji.</em>
 
 ---
 
@@ -689,7 +728,7 @@ weighted avg     0.7770    0.7725    0.7723       800
 
 ---
 
-✅ **Kesimpulan:**
+**Kesimpulan:**
 
 * Model **Random Forest** memberikan hasil terbaik dengan akurasi **78.37%** dan F1-score **0.7875**, mengungguli dua model lainnya.
 * **XGBoost** menempati posisi kedua dengan performa serupa namun memerlukan tuning lebih lanjut untuk peningkatan optimal.
@@ -715,44 +754,4 @@ Berdasarkan hasil keseluruhan proyek **Apple Quality Classification**, diperoleh
 
 5. **Potensi Pengembangan ke Depan**  
    Model dapat dioptimalkan melalui **hyperparameter tuning** untuk meningkatkan akurasi dan kemampuan generalisasi.  
-   Selain itu, pengembangan lebih lanjut dapat mencakup **fitur berbasis citra atau sensor non-destruktif**, agar sistem klasifikasi dapat beradaptasi dengan kondisi nyata di industri pertanian modern.
-
-## Daftar Gambar
-1. [Gambar 1. Workflow Diagram Machine Learning](#gambar-1-workflow-diagram-machine-learning)
-2. [Gambar 2. Heatmap Korelasi Fitur](#gambar-2-heatmap-korelasi-fitur)
-3. [Gambar 3. Distribusi Label Target (Quality)](#gambar-3-distribusi-label-target-quality)
-4. [Gambar 4. Confusion Matrix – Logistic Regression](#gambar-4-confusion-matrix--logistic-regression)
-5. [Gambar 5. Confusion Matrix – Random Forest](#gambar-5-confusion-matrix--random-forest)
-6. [Gambar 6. Confusion Matrix – XGBoost](#gambar-6-confusion-matrix--xgboost)
-
----
-
-### Gambar 1. Workflow Diagram Machine Learning
-<p id="gambar-1-workflow-diagram-machine-learning"></p>
-<img src="Asset/Workflow%20Diagram%20Machine%20Learning.png" alt="Workflow Diagram Machine Learning" width="900"/>
-<br/><em>Data → Preprocessing → Modeling → Evaluation → Result.</em>
-
-### Gambar 2. Heatmap Korelasi Fitur
-<p id="gambar-2-heatmap-korelasi-fitur"></p>
-<img src="Asset/Heatmap.png" alt="Heatmap Korelasi Fitur" width="900"/>
-<br/><em>Korelasi antar fitur terhadap target Quality.</em>
-
-### Gambar 3. Distribusi Label Target (Quality)
-<p id="gambar-3-distribusi-label-target-quality"></p>
-<img src="Asset/Distribusi%20Label%20Target%20(Quality).png" alt="Distribusi Label Target (Quality)" width="700"/>
-<br/><em>Perbandingan jumlah kelas good vs bad.</em>
-
-### Gambar 4. Confusion Matrix – Logistic Regression
-<p id="gambar-4-confusion-matrix--logistic-regression"></p>
-<img src="Asset/Confusion%20Matrix%20-%20Logistic%20Regression.png" alt="Confusion Matrix - Logistic Regression" width="700"/>
-<br/><em>Evaluasi model Logistic Regression pada data uji.</em>
-
-### Gambar 5. Confusion Matrix – Random Forest
-<p id="gambar-5-confusion-matrix--random-forest"></p>
-<img src="Asset/Confusion%20Matrix%20-%20Random%20Forest.png" alt="Confusion Matrix - Random Forest" width="700"/>
-<br/><em>Evaluasi model Random Forest pada data uji.</em>
-
-### Gambar 6. Confusion Matrix – XGBoost
-<p id="gambar-6-confusion-matrix--xgboost"></p>
-<img src="Asset/Confusion%20Matrix%20-%20XGBoost.png" alt="Confusion Matrix - XGBoost" width="700"/>
-<br/><em>Evaluasi model XGBoost pada data uji.</em>
+   Selain itu, pengembangan lebih lanjut dapat mencakup **fitur berbasis citra atau sensor non-destruktif**, agar sistem klasifikasi dapat beradaptasi dengan kondisi nyata di industri pertanian modern.)
