@@ -3,7 +3,7 @@
 ## Daftar Isi
 - [A. Domain Proyek](#a-domain-proyek)
 - [B. Business Understanding](#b-business-understanding)
-- [C. Import Library](#cimport-library)
+- [C. Import Library](#c-import-library)
 - [D. Data Understanding](#d-data-understanding)
 - [E. Data Preparation](#e-data-preparation)
 - [F. Modeling](#f-modeling)
@@ -718,7 +718,7 @@ weighted avg     0.7770    0.7725    0.7723       800
 
 ---
 
-### **3️⃣ Analisis Perbandingan Model**
+### **3️. Analisis Perbandingan Model**
 
 | Model                   |  Accuracy  |  Precision |   Recall   |  F1-Score  | Analisis Singkat                                                               |
 | :---------------------- | :--------: | :--------: | :--------: | :--------: | :----------------------------------------------------------------------------- |
