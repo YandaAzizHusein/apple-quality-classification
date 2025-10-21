@@ -59,7 +59,7 @@ Data → Preprocessing → Modeling → Evaluation → Result
 
 ---
 
-## **C.import Library**
+## **C. import Library**
 Bagian ini memuat seluruh library yang digunakan dalam proses analisis dan pengembangan model klasifikasi kualitas apel.  
 
 | **Kategori**    | **Library**                                                   | **Fungsi Utama**                                         |
